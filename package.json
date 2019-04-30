@@ -10,5 +10,9 @@
     "findHouse"
   ],
   "author": "jonnzer",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
+  }
 }
