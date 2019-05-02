@@ -7,6 +7,7 @@ app.get('/', function (req, res) {
     res.render('pug-html/index');
 });
 app.use('/static', express.static(path.join(__dirname, 'static')));
+
 app.listen(8070, () => {
     console.log('start  8070 port');
 });
