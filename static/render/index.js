@@ -10,6 +10,9 @@ function fetchCity(coordinate) {
     } else {
         $.get('/static/renderJson/city.json', function (res) {
             let result = res.city;
+            let szArea = res.szArea.list;
+            // allUtils.unicodeToCn();
+            console.log(szArea);
             for (var i in result) {
                 if (i == '深圳') {
                     sz = result[i];
@@ -70,7 +73,6 @@ function fetchCity(coordinate) {
                     this.getElementsByTagName("span")[0].innerHTML = that._text;
                     arrow.style.backgroundPosition = "0px 0px";
                 }
-
                 mp.getPanes().labelPane.appendChild(div);
 
                 return div;
@@ -84,7 +86,12 @@ function fetchCity(coordinate) {
             var txt = "银湖海岸城", mouseoverTxt = txt + " " + parseInt(Math.random() * 1000, 10) + "套";
 
             var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(szAddr[0], szAddr[1]), "银湖海岸城", mouseoverTxt);
-
+            // var polyline = new BMap.Polyline([
+            //     // new BMap.Point(114.20370397387,22.559180083699),
+            //     // new BMap.Point(114.1001192293,22.60691837918),
+            //     // new BMap.Point(114.19193371408,22.556701081155)
+            // ], {fillColor: "#00a75b", strokeColor:"#00a75b", strokeWeight:5, strokeOpacity:1, fillOpacity: .3});
+            // mp.addOverlay(polyline);          //覆盖区域
             mp.addOverlay(myCompOverlay);// addOverlay: 将覆盖物添加到地图中，一个覆盖物实例只能向地图中添加一次
         });
     }
@@ -96,8 +103,6 @@ function loadScript() {
     document.body.appendChild(script);
 }
 window.onload = loadScript;
-function anlyData() {// 分析数据
-    let text = '\u798f\u7530\u533a';
-    return allUtils.unicodeToCn(text);
-}
-console.log(anlyData());
+
+
+
